@@ -1,0 +1,27 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:h2:mem:loansdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+  cache:
+    cache-names: loanById,loansByUser,allLoans
+
+security:
+  jwt:
+    secret: 2df6472a22ef44cfb9a3d0a96107353c2df6472a22ef44cfb9a3d0a96107353c
+    expiration-ms: 86400000
